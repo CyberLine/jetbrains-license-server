@@ -7,7 +7,7 @@ if [ -n "$LICENSE_SERVER_HOST" ]; then
   echo "Using hostname $LICENSE_SERVER_HOST..."
   $BASE_DIR/bin/license-server.sh configure --host $LICENSE_SERVER_HOST --jetty.virtualHosts.names=$LICENSE_SERVER_HOST
 fi
-if [[ -n "$LICENSE_SERVER_SMTP_SERVER"  &&  -n "$LICENSE_SERVER_STATS_RECIPIENTS" ]]; then
+if [[ -n "$LICENSE_SERVER_SMTP_SERVER" && -n "$LICENSE_SERVER_STATS_RECIPIENTS" ]]; then
     smtp_port=${LICENSE_SERVER_SMTP_PORT:-25}
     echo "Enabling Stats via SMTP at $LICENSE_SERVER_SMTP_SERVER:$smtp_port..."
     $BASE_DIR/bin/license-server.sh configure --smtp.server $LICENSE_SERVER_SMTP_SERVER --smtp.server.port $smtp_port
@@ -15,14 +15,14 @@ if [[ -n "$LICENSE_SERVER_SMTP_SERVER"  &&  -n "$LICENSE_SERVER_STATS_RECIPIENTS
     echo "Stats recipient(s): $LICENSE_SERVER_STATS_RECIPIENTS..."
     $BASE_DIR/bin/license-server.sh configure --stats.recipients $LICENSE_SERVER_STATS_RECIPIENTS
 
-    if [[ -n "$LICENSE_SERVER_SMTP_USERNAME"  &&  -n "$LICENSE_SERVER_SMTP_PASSWORD" ]]; then
+    if [[ -n "$LICENSE_SERVER_SMTP_USERNAME" && -n "$LICENSE_SERVER_SMTP_PASSWORD" ]]; then
         echo "Using SMTP username $LICENSE_SERVER_SMTP_USERNAME with password..."
         $BASE_DIR/bin/license-server.sh configure --smtp.server.username $LICENSE_SERVER_SMTP_USERNAME
         $BASE_DIR/bin/license-server.sh configure --smtp.server.password $LICENSE_SERVER_SMTP_PASSWORD
       fi
 
     if [ -n "$LICENSE_SERVER_STATS_FROM" ]; then
-      echo "Using hostname $LICENSE_SERVER_STATS_FROM..."
+      echo "Stats from: $LICENSE_SERVER_STATS_FROM"
       $BASE_DIR/bin/license-server.sh configure --stats.from $LICENSE_SERVER_STATS_FROM
     fi
   fi

@@ -14,4 +14,6 @@ RUN apk add --no-cache curl bash && \
 
 EXPOSE 8080
 
+HEALTHCHECK CMD /usr/bin/curl --fail http://localhost:8080 || exit 1
+
 ENTRYPOINT ["/docker-entrypoint.sh"]

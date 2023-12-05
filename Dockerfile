@@ -1,17 +1,17 @@
-FROM anapsix/alpine-java:8_server-jre
-MAINTAINER Peter Fry "https://github.com/racerpeter"
+FROM amazoncorretto:11.0.21-alpine3.18
+
+MAINTAINER Alexander Over "https://github.com/CyberLine"
 
 ENV BASE_DIR=/usr/local/license-server
-RUN apk add --no-cache curl
 
-RUN /usr/bin/curl -o installer.zip -Ss https://download-cf.jetbrains.com/lcsrv/license-server-installer.zip?version=18692 && \
+COPY --chmod=755 ./docker-entrypoint.sh /
+
+RUN apk add --no-cache curl bash && \
+  /usr/bin/curl -o installer.zip -Ss https://download-cf.jetbrains.com/lcsrv/license-server-installer.zip?version=38945 && \
   mkdir $BASE_DIR && \
   unzip -d $BASE_DIR installer.zip && \
   rm -f installer.zip
 
-COPY docker-launcher.sh /usr/bin/docker-launcher.sh
-RUN chmod +x /usr/bin/docker-launcher.sh
-
 EXPOSE 8080
 
-CMD ["/usr/bin/docker-launcher.sh"]
+ENTRYPOINT ["/docker-entrypoint.sh"]

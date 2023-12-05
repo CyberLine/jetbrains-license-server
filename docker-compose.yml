@@ -1,7 +1,8 @@
-version: '2'
+version: '3'
+
 services:
   license_server:
-    image: racerpeter/jetbrains-license-server
+    image: cyberline/jetbrains-license-server:latest
     ports:
       - "8080:8080"
     environment:

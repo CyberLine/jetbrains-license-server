@@ -1,5 +1,5 @@
 # jetbrains-license-server
-A dockerized JetBrains License Server (current version is build 17955, released Sept 28, 2018), based on tomcat:8.5. Available on Docker Hub at [racerpeter/jetbrains-license-server](https://hub.docker.com/r/racerpeter/jetbrains-license-server/).
+A dockerized JetBrains License Server (current version is build 38945, released Aug 25, 2023), based on amazoncorretto:11.0.21-alpine3.18. Available on Docker Hub at [cyberline/jetbrains-license-server](https://hub.docker.com/r/cyberline/jetbrains-license-server/).
 
 ## Getting Started
 Getting started with jetbrains-license-server is easy:

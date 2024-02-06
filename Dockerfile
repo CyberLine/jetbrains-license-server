@@ -7,7 +7,7 @@ ENV BASE_DIR=/usr/local/license-server
 COPY --chmod=755 ./docker-entrypoint.sh /
 
 RUN apk add --no-cache curl bash && \
-  /usr/bin/curl -o installer.zip -Ss https://download-cf.jetbrains.com/lcsrv/license-server-installer.zip?version=38945 && \
+  /usr/bin/curl -o installer.zip -Ss https://download-cf.jetbrains.com/lcsrv/license-server-installer.zip?version=39687 && \
   mkdir $BASE_DIR && \
   unzip -d $BASE_DIR installer.zip && \
   rm -f installer.zip

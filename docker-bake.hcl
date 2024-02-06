@@ -1,5 +1,5 @@
 variable "VERSION" {
-  default = "38945"
+  default = "39687"
 }
 
 target "platforms" {
